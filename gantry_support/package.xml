@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <name>gantry_support</name>
+  <version>0.0.1</version>
+  <description>ROS Industrial support for gantry robot</description>
+
+
+
+  <license>BSD</license>
+
+
+  <maintainer email="ivareri@stud.ntnu.no">ivareri</maintainer>
+  <author email="ivareri@stud.ntnu.no">Ivar Eriksen</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>roslaunch</build_depend>
+
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>kuka_kr16_support</run_depend>
+  
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 0.7 -->
+  <robot name="gantry">
+
+    <link_sphere_approximation link="E1">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <link_sphere_approximation link="E2">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <link_sphere_approximation link="E3">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <link_sphere_approximation link="base">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <link_sphere_approximation link="robot_connection">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <link_sphere_approximation link="root">
+      <sphere center="0.0 0.0 0.0" radius="0"/>
+    </link_sphere_approximation>
+
+    <disable_collisions link1="E2" link2="E3"/>
+    <disable_collisions link1="E2" link2="base"/>
+    <disable_collisions link1="E2" link2="root"/>
+    <disable_collisions link1="E2" link2="E1"/>
+    <disable_collisions link1="E2" link2="robot_connection"/>
+    <disable_collisions link1="E3" link2="base"/>
+    <disable_collisions link1="E3" link2="root"/>
+    <disable_collisions link1="E3" link2="E1"/>
+    <disable_collisions link1="E3" link2="robot_connection"/>
+    <disable_collisions link1="base" link2="root"/>
+    <disable_collisions link1="base" link2="E1"/>
+    <disable_collisions link1="base" link2="robot_connection"/>
+    <disable_collisions link1="root" link2="E1"/>
+    <disable_collisions link1="root" link2="robot_connection"/>
+    <disable_collisions link1="E1" link2="robot_connection"/>
+    <disable_collisions link1="gantry::root" link2="gantry::root"/>
+    <disable_collisions link1="gantry::root" link2="gantry::base"/>
+    <disable_collisions link1="gantry::root" link2="gantry::E1"/>
+    <disable_collisions link1="gantry::root" link2="gantry::E2"/>
+    <disable_collisions link1="gantry::root" link2="gantry::E3"/>
+    <disable_collisions link1="gantry::root" link2="gantry::robot_connection"/>
+
+  </robot>
