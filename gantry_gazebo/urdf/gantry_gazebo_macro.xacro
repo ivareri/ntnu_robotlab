@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--Generates a urdf from the macro in kr16_2_macro.xacro -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find gantry_support)/urdf/gantry_macro.xacro" />
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro" />
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gazebo.xacro" />
+
+  <xacro:macro name="gantry_gazebo" params="prefix" >
+
+    <xacro:gantry prefix=""/>
+    <xacro:gantry_transmission prefix=""/>
+
+    <link name="world" />
+    <joint name="world_joint" type="fixed">
+      <parent link="world" />
+      <child link = "${prefix}root" />
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+
+  </xacro:macro>
+</robot>
