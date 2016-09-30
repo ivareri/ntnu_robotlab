@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+     <!-- include robot description -->
+     <xacro:include filename="$(find robotlab)/urdf/both_macro.xacro" />
+     <!-- include transmission files for robots -->
+     <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro" />
+     <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_transmission_macro.xacro" />
+
+     <xacro:include filename="$(find gantry_gazebo)/urdf/gazebo.xacro" />
+
+
+     <xacro:macro name="robotlab_gazebo" params="prefix" >
+	     	<xacro:both prefix="" />
+		<!-- load transmission file for gantry -->
+		<xacro:gantry_transmission prefix="${prefix}gantry_"/>
+		<!-- load transmission file for kr16 -->
+		<xacro:kr16_2_transmission prefix="${prefix}gantry_"/>
+		<xacro:kr16_2_transmission prefix="${prefix}floor_"/>
+	    
+			<!-- connect gantry to world frame -->
+		<link name="${prefix}world" />
+		<joint name="${prefix}world_joint" type="fixed">
+			<parent link="${prefix}world" />
+			<child link = "${prefix}root" />
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+		</joint> 
+	</xacro:macro>
+</robot>

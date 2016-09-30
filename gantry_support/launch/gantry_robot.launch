@@ -1,5 +1,5 @@
  <launch>
-   <param name="robot_description"  command="$(find xacro)/xacro.py '$(find gantry_support)/urdf/gantry_robot.xacro'" />
+   <param name="robot_description"  command="$(find xacro)/xacro.py --inorder '$(find gantry_support)/urdf/gantry_robot.xacro'" />
    <arg name="rvizconfig" default="$(find gantry_support)/rviz/urdf.rviz" />
    <arg name="gui" default="True" />
    <param name="use_gui" value="$(arg gui)"/>

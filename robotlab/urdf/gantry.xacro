@@ -1,22 +1,6 @@
 <?xml version="1.0"?>
 <!--Generates a urdf from the macro in gantry_macro.xacro -->
 <robot name="gantry" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find gantry_support)/urdf/gantry_macro.xacro" />
-  <xacro:gantry prefix="gantry_"/>
-  <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro" />
-  <xacro:kuka_kr16_2 prefix="gantry_"/>
-
-  <link name="root">
-  </link>
-
-  <joint name="root_gantry" type="fixed">
-	  <parent link="root" />
-	  <child link="gantry_root" />
-  </joint>
-
-  <joint name="gantry_robot" type="fixed">
-	  <origin xyz="0 0 0" rpy="0 0 0" />
-	  <parent link="gantry_robot_connection" />
-	  <child link="gantry_base_link" />
-  </joint>
+  <xacro:include filename="$(find gantry_support)/urdf/gantry_robot_macro.xacro" />
+  <xacro:gantry_robot prefix="gantry_"/>
 </robot>
