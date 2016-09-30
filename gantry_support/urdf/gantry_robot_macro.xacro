@@ -9,6 +9,7 @@
 	<xacro:kuka_kr16_2 prefix="${prefix}"/>
 
 	<joint name="${prefix}gantry_robot" type="fixed">
+		<origin xyz="0 0 0" rpy="0 0 ${DEG2RAD * 90}"/>
 		<parent link="${prefix}robot_connection" />
 		<child link="${prefix}base_link" />
   	</joint>
