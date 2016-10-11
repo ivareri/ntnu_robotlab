@@ -12,7 +12,7 @@
 
 
      <xacro:macro name="robotlab_gazebo" params="prefix" >
-	     	<xacro:both prefix="" />
+	     	<xacro:both prefix="${prefix}" />
 		<!-- load transmission file for gantry -->
 		<xacro:gantry_transmission prefix="${prefix}gantry_"/>
 		<!-- load transmission file for kr16 -->
