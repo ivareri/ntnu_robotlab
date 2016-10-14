@@ -100,7 +100,7 @@
       <parent link="${prefix}link_trolley"/>
       <child link="${prefix}link_arm"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.8" upper="0.8" effort="1.0" velocity="0"/>
+      <limit lower="-0.8" upper="0.8" effort="1.0" velocity="100"/>
     </joint>
 
     <joint name="${prefix}link_base" type="fixed">
@@ -114,7 +114,7 @@
       <parent link="${prefix}link_base"/>
       <child link="${prefix}link_leg"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.77" upper="0.77" effort="1.0" velocity="0"/>
+      <limit lower="-0.77" upper="0.77" effort="1.0" velocity="100"/>
     </joint>
 
     <joint name="${prefix}joint_e2" type="prismatic">
@@ -122,7 +122,7 @@
       <parent link="${prefix}link_leg"/>
       <child link="${prefix}link_trolley"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-2.35" upper="2.35" effort="1.0" velocity="0"/>
+      <limit lower="-2.35" upper="2.35" effort="1.0" velocity="100"/>
     </joint>
 
     <joint name="${prefix}robot_connection" type="fixed">
