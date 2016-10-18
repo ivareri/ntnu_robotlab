@@ -58,7 +58,7 @@
         <material name="01___Default.001"/>
       </visual>
       <collision name="collision_leg">
-        <origin xyz="0 0.114805 -0.069116" rpy="1.570796 -1.570796 0"/>
+        <origin xyz="0.000315 0.114805 -0.069116" rpy="1.570796 -1.570796 0"/>
         <geometry>
           <mesh filename="../meshes/VIFS42.000.dae" scale="1.0 1.0 1.0"/>
         </geometry>
@@ -93,11 +93,11 @@
     </link>
 
     <joint name="link_arm" type="prismatic">
-      <origin xyz="-0.164527 0.159154 -0.053205" rpy="1.570796 0 0"/>
+      <origin xyz="-0.164527 -0.651668 -0.053205" rpy="1.570796 0 0"/>
       <parent link="link_trolley"/>
       <child link="link_arm"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.8" upper="0.8" effort="1.0" velocity="0"/>
+      <limit lower="-1.6" upper="0" effort="1.0" velocity="1.0"/>
     </joint>
 
     <joint name="link_base" type="fixed">
@@ -107,19 +107,19 @@
     </joint>
 
     <joint name="link_leg" type="prismatic">
-      <origin xyz="-2.570369 -0.057403 0.034558" rpy="0 0 0"/>
+      <origin xyz="-2.570369 -0.057403 0.844145" rpy="0 0 0"/>
       <parent link="link_base"/>
       <child link="link_leg"/>
-      <axis xyz="0 0 1.0"/>
-      <limit lower="-0.77" upper="0.77" effort="1.0" velocity="0"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="0" upper="1.54" effort="1.0" velocity="1.0"/>
     </joint>
 
     <joint name="link_trolley" type="prismatic">
-      <origin xyz="-1.277963 0.430506 -0.476427" rpy="-1.570796 -1.570796 0"/>
+      <origin xyz="-1.277963 2.407403 -0.476427" rpy="-1.570796 -1.570796 0"/>
       <parent link="link_leg"/>
       <child link="link_trolley"/>
-      <axis xyz="0 0 1.0"/>
-      <limit lower="-2.35" upper="2.35" effort="1.0" velocity="0"/>
+      <axis xyz="0 0 -1.0"/>
+      <limit lower="0" upper="4.7" effort="1.0" velocity="1.0"/>
     </joint>
 
     <joint name="robot_connection" type="fixed">
