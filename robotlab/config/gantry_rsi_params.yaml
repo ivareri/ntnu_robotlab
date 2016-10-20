@@ -1,0 +1,5 @@
+rsi:
+  listen_address: "10.0.0.200"
+  listen_port: 49153
+  external_axes: true
+  n_dof: 9

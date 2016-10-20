@@ -1,0 +1,3 @@
+rsi:
+  listen_address: "10.0.0.200"
+  listen_port: 49152
