@@ -14,14 +14,14 @@
       <visual name="${prefix}visual_arm">
         <origin xyz="0 0 0" rpy="${DEG2RAD * 90} 0 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS96.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS96.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${prefix}VMtl98"/>
       </visual>
       <collision name="${prefix}collision_arm">
         <origin xyz="0 0 1.34717" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/Cylinder.dae" scale="0.188288 0.188288 0.188288"/>
+          <mesh filename="package://gantry_support/meshes/Cylinder.stl" scale="0.188288 0.188288 0.188288"/>
         </geometry>
       </collision>
     </link>
@@ -35,14 +35,14 @@
       <visual name="${prefix}visual_base">
         <origin xyz="0 0 0" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS01.001.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS01.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${prefix}03___Default.001"/>
       </visual>
       <collision name="${prefix}collision_base">
         <origin xyz="0 0 0" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS01.000.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS01.000.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
     </link>
@@ -56,14 +56,14 @@
       <visual name="${prefix}visual_leg">
         <origin xyz="0 0.114805 -0.069116" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS42.001.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS42.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${prefix}01___Default.001"/>
       </visual>
       <collision name="${prefix}collision_leg">
         <origin xyz="0.000315 0.114805 -0.069116" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS42.000.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS42.000.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
     </link>
@@ -77,14 +77,14 @@
       <visual name="${prefix}visual_trolley">
         <origin xyz="0 0 0" rpy="-${DEG2RAD * 180} 0 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/VIFS43.001.dae" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://gantry_support/meshes/VIFS43.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${prefix}02___Default.001"/>
       </visual>
       <collision name="${prefix}collision_trolley">
         <origin xyz="-0.020567 0.254046 -0.042038" rpy="${DEG2RAD * 90} 0 0"/>
         <geometry>
-          <mesh filename="package://gantry_support/meshes/Cube.005.dae" scale="0.129538 0.485533 0.188935"/>
+          <mesh filename="package://gantry_support/meshes/Cube.005.stl" scale="0.129538 0.485533 0.188935"/>
         </geometry>
       </collision>
     </link>
@@ -100,7 +100,7 @@
       <parent link="${prefix}link_trolley"/>
       <child link="${prefix}link_arm"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-1.6" upper="0" effort="1.0" velocity="1.0"/>
+      <limit lower="-1.6" upper="0" effort="1.0" velocity="0.55"/>
     </joint>
 
     <joint name="${prefix}link_base" type="fixed">
@@ -122,7 +122,7 @@
       <parent link="${prefix}link_leg"/>
       <child link="${prefix}link_trolley"/>
       <axis xyz="0 0 -1.0"/>
-      <limit lower="0" upper="4.7" effort="1.0" velocity="1.0"/>
+      <limit lower="0" upper="4.7" effort="1.0" velocity="0.83"/>
     </joint>
 
     <joint name="${prefix}robot_connection" type="fixed">
