@@ -20,7 +20,7 @@
 		</joint>
 
 		<joint name="${prefix}root_floor" type="fixed">
-		        <origin xyz="0 1 0" rpy="0 0 -${KUKA_DEG2RAD * 90}"/>
+		        <origin xyz="-0.402 0.486 0" rpy="0 0 -${KUKA_DEG2RAD * 90}"/>
 		        <parent link="${prefix}root" />
 		        <child link="${prefix}floor_base_link" />
 		</joint>
