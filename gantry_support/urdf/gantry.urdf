@@ -24,11 +24,6 @@
     </link>
 
     <link name="link_base">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="100.0"/>
-        <inertia ixx="71.623734" ixy="3.1e-05" ixz="0" iyy="788.87262" iyz="1.2e-05" izz="851.100647"/>
-      </inertial>
       <visual name="visual_base">
         <origin xyz="0 0 0" rpy="1.570796 -1.570796 0"/>
         <geometry>
@@ -111,7 +106,7 @@
       <parent link="link_base"/>
       <child link="link_leg"/>
       <axis xyz="0 0 -1.0"/>
-      <limit lower="0" upper="1.54" effort="1.0" velocity="1.0"/>
+      <limit lower="0" upper="1.54" effort="1.0" velocity="0.5"/>
     </joint>
 
     <joint name="link_trolley" type="prismatic">
