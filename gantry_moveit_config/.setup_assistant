@@ -1,0 +1,8 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: gantry_support
+    relative_path: urdf/gantry_robot.urdf
+  SRDF:
+    relative_path: config/gantry.srdf
+  CONFIG:
+    generated_timestamp: 1481903805

@@ -64,7 +64,7 @@ joint_limits:
     max_acceleration: 0
   gantry_joint_e1:
     has_velocity_limits: true
-    max_velocity: 1
+    max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   gantry_joint_e2:
