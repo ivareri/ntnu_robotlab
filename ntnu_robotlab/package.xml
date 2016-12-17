@@ -10,8 +10,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <exec_depend>gantry_support</exec_depend>
-  <exec_depend>gantry_gazebo</exec_depend>
   <exec_depend>kuka_kr16_support</exec_depend>
   <exec_depend>kuka_kr16_gazebo</exec_depend>
   <exec_depend>kuka_resources</exec_depend>
