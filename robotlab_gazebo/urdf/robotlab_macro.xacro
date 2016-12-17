@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find robotlab_support)/urdf/both_macro.xacro"/>
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_robot_gazebo_macro.xacro"/>
+
+  <xacro:macro name="robotlab_gazebo" params="prefix" >
+    <!-- load robots -->
+    <xacro:both prefix="${prefix}" />
+  
+    <!-- load gantry transmission -->
+    <xacro:gantry_transmission prefix="${prefix}gantry_" />
+  
+    <!-- load gantry kr16 transmission -->
+    <xacro:kr16_2_transmission prefix="${prefix}gantry_" />
+  
+    <!-- load floor kr16 transmission -->
+    <xacro:kr16_2_transmission prefix="${prefix}floor_" />
+  
+    <!-- ros_control plugin -->
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/</robotNamespace>
+        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+    </gazebo>  
+  </xacro:macro>
+</robot>

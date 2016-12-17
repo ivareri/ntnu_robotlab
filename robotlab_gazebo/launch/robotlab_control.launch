@@ -1,0 +1,5 @@
+<launch>
+  <!-- load the joint state controller -->
+  <rosparam file="$(find robotlab_gazebo)/config/joint_state_controller.yaml" command="load" />
+  <node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" />
+</launch>
