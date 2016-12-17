@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>robotlab</name>
+  <name>robotlab_support</name>
   <version>0.0.0</version>
   <description>The robotlab package</description>
 

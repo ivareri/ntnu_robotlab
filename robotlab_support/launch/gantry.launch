@@ -1,6 +1,6 @@
  <launch>
-   <param name="robot_description"  command="$(find xacro)/xacro.py --inorder '$(find robotlab)/urdf/gantry.xacro'" />
-   <arg name="rvizconfig" default="$(find robotlab)/rviz/urdf.rviz" />
+   <param name="robot_description"  command="$(find xacro)/xacro.py --inorder '$(find robotlab_support)/urdf/gantry.xacro'" />
+   <arg name="rvizconfig" default="$(find robotlab_support)/rviz/urdf.rviz" />
    <arg name="gui" default="True" />
    <param name="use_gui" value="$(arg gui)"/>
    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>
