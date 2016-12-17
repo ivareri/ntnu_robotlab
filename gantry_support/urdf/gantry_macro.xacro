@@ -9,7 +9,7 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="100.0"/>
-        <inertia ixx="77.157539" ixy="-0.43952" ixz="-0.013708" iyy="77.235046" iyz="-3e-06" izz="1.060431"/>
+        <inertia ixx="77.157539" ixy="-0.43952" ixz="-0.013708" iyy="77.235046" iyz="-8e-06" izz="1.060431"/>
       </inertial>
       <visual name="${prefix}visual_arm">
         <origin xyz="0 0 0" rpy="${DEG2RAD * 90} 0 0"/>
@@ -27,6 +27,11 @@
     </link>
 
     <link name="${prefix}link_base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="100.0"/>
+        <inertia ixx="71.623734" ixy="3.1e-05" ixz="0" iyy="788.87262" iyz="1.2e-05" izz="851.100647"/>
+      </inertial>
       <visual name="${prefix}visual_base">
         <origin xyz="0 0 0" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
         <geometry>
@@ -46,7 +51,7 @@
       <inertial>
         <origin xyz="0 0.114805 -0.069116" rpy="0 0 0"/>
         <mass value="1000.0"/>
-        <inertia ixx="1880.551147" ixy="0.000265" ixz="0" iyy="7958.77002" iyz="-13.379694" izz="6216.929688"/>
+        <inertia ixx="1880.551147" ixy="0.000232" ixz="0" iyy="7958.77002" iyz="-13.379694" izz="6216.929688"/>
       </inertial>
       <visual name="${prefix}visual_leg">
         <origin xyz="0 0.114805 -0.069116" rpy="${DEG2RAD * 90} -${DEG2RAD * 90} 0"/>
@@ -67,7 +72,7 @@
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="100.0"/>
-        <inertia ixx="15.599652" ixy="1.71094" ixz="1.886529" iyy="9.19625" iyz="0.938979" izz="14.022485"/>
+        <inertia ixx="15.599652" ixy="1.71094" ixz="1.886528" iyy="9.19625" iyz="0.938975" izz="14.022485"/>
       </inertial>
       <visual name="${prefix}visual_trolley">
         <origin xyz="0 0 0" rpy="-${DEG2RAD * 180} 0 0"/>
