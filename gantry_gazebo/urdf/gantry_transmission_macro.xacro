@@ -37,6 +37,24 @@
                 <hardwareInterface>PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
-        </transmission>
+    </transmission>
+
+	
+    <gazebo reference="${prefix}link_base">
+      <material>Gazebo/Grey</material>
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}link_leg">
+      <material>Gazebo/Blue</material>
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}link_arm">
+      <material>Gazebo/Blue</material>
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}link_trolley">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+
     </xacro:macro>
 </robot>

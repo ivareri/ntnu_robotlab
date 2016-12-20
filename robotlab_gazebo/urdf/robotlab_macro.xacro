@@ -15,13 +15,50 @@
   
     <!-- load floor kr16 transmission -->
     <xacro:kr16_2_transmission prefix="${prefix}floor_" />
-  
-    <!-- ros_control plugin -->
-    <gazebo>
-      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-        <robotNamespace>/</robotNamespace>
-        <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      </plugin>
-    </gazebo>  
+  <gazebo reference="${prefix}gantry_base_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_1">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_2">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_3">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_4">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_5">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}gantry_link_6">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_base_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_1">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_2">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_3">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_4">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_5">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="${prefix}floor_link_6">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+ 
+
+    <!-- ros_control plugin loaded from kr_16 file-->
   </xacro:macro>
 </robot>

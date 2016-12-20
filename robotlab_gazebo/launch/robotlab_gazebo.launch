@@ -1,11 +1,6 @@
 <launch>
   <arg name="paused" default="false"/>
 
-  <!-- remap topics to conform to ROS-I specifications -->
-  <remap from="/arm_controller/follow_joint_trajectory" to="/joint_trajectory_action" />
-  <remap from="/arm_controller/state" to="/feedback_states" />
-  <remap from="/arm_controller/command" to="/joint_path_command"/>
-
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="worlds/empty.world"/>
@@ -19,12 +14,9 @@
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="robotlab_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" args="-urdf -param robot_description -model robotlab" />
 
-    <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-  output="screen">
-  </node>
-
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+  
   <!-- init and start Gazebo ros_control interface -->
   <include file="$(find robotlab_gazebo)/launch/robotlab_control.launch"/>
-
 </launch>

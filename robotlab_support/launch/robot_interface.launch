@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-  <arg name="sim_floor" default="true"/>
-  <arg name="sim_gantry" default="true"/>
+  <arg name="sim_floor" default="false"/>
+  <arg name="sim_gantry" default="false"/>
 
   <!-- Floor robot stuff -->
   <group ns="floor">
