@@ -6,5 +6,5 @@ Usage:
 
 To load MoveIt with gazebo: 
 
-```roslaunch robotlab_moveit_config robotlab_planning_execution_gazebo.launch```
+```roslaunch robotlab_moveit_config moveit_planning_execution_gazebo.launch```
 
