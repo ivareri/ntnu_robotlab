@@ -18,7 +18,12 @@
 
   <!-- run the robot simulator and action interface nodes -->
   <group if="$(arg sim)">
-    <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
+	  <!--   <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" /> -->
+	<include file="$(find robotlab_support)/launch/robot_interface.launch" >
+		<arg name="sim_floor" value="true" />
+			<arg name="sim_gantry" value="true" />
+	</include>
+  
   </group>
 
   <!-- run the "real robot" interface nodes -->

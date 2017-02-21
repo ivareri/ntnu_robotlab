@@ -5,10 +5,10 @@
 
   <!-- Floor robot stuff -->
   <group ns="floor">
-    <remap from="/position_trajectory_controller/follow_joint_trajectory" to="/joint_trajectory_action"/>
-    <remap from="/position_trajectory_controller/state" to="/feedback_states"/>
-    <remap from="/position_trajectory_controller/command" to="/joint_path_command"/>
-    
+    <remap from="position_trajectory_controller/follow_joint_trajectory" to="joint_trajectory_action"/>
+    <remap from="position_trajectory_controller/state" to="feedback_states"/>
+    <remap from="position_trajectory_controller/command" to="joint_path_command"/>
+    <remap from="joint_states" to="/joint_states" /> 
 
     <!-- load controller parameters -->
     <rosparam file="$(find robotlab_support)/config/floor_rsi_params_sim.yaml" command="load" if="$(arg sim_floor)"/>
@@ -34,9 +34,10 @@
   </group>
   <!-- Gantry robot stuff -->
   <group ns="gantry">
-    <remap from="/position_trajectory_controller/follow_joint_trajectory" to="/joint_trajectory_action"/>
-    <remap from="/position_trajectory_controller/state" to="/feedback_states"/>
-    <remap from="/position_trajectory_controller/command" to="/joint_path_command"/>
+    <remap from="position_trajectory_controller/follow_joint_trajectory" to="joint_trajectory_action"/>
+    <remap from="position_trajectory_controller/state" to="feedback_states"/>
+    <remap from="position_trajectory_controller/command" to="joint_path_command"/>
+    <remap from="joint_states" to="/joint_states" /> 
 
     <!-- load controller parameters -->
     <rosparam file="$(find robotlab_support)/config/gantry_rsi_params_sim.yaml" command="load" if="$(arg sim_gantry)"/>
