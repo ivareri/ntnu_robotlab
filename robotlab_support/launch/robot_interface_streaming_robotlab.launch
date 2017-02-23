@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-  <arg name="sim_floor" default="false"/>
-  <arg name="sim_gantry" default="false"/>
-  <arg name="rsi" default="false" />
-  <arg name="crosscom" default="false" />
-
-  <!-- Used internaly untill we can evaluate expersions -->
+  <arg name="sim_floor" default="true"/>
+  <arg name="sim_gantry" default="true"/>
   <arg name="rsi_floor" default="false" />
   <arg name="rsi_gantry" default="false" />
   <arg name="crosscom_floor" default="false" />
   <arg name="crosscom_gantry" default="false" />
-
-  <group if="$(arg rsi)">
-	<arg name="rsi_floor" value="true" unless="$(arg sim_floor)" />
-        <arg name="rsi_gantry" value="true" unless="$(arg sim_gantry)" />
-  </group>
-
-  <group if="$(arg crosscom)">
-	<arg name="crosscom_floor" value="true" unless="$(arg sim_floor)" />
-        <arg name="crosscom_gantry" value="true" unless="$(arg sim_gantry)" />
-  </group>
+  <arg name="crosscom" default="false" />
 
   <!-- Floor robot stuff -->
   <group ns="floor">
@@ -30,7 +17,7 @@
     <!-- load controller parameters -->
     <rosparam file="$(find robotlab_support)/config/floor_rsi_params_sim.yaml" command="load" if="$(arg sim_floor)"/>
     <rosparam file="$(find robotlab_support)/config/floor_rsi_params.yaml" command="load" if="$(arg rsi_floor)"/>
-    <rosparam file="$(find robotlab_support)/config/floor_crosscom_params.yaml" command="load" unless="$(arg crosscom_floor)"/>
+    <rosparam file="$(find robotlab_support)/config/floor_crosscom_params.yaml" command="load" if="$(arg crosscom_floor)"/>
     <!-- start controller-->
     <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg rsi_floor)"/>
     <node name="kuka_hardware_interface" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg sim_floor)"/>

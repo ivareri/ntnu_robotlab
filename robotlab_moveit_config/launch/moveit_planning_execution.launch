@@ -31,8 +31,11 @@
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
   <group unless="$(arg sim)">
-    <include file="$(find robotlab_support)/launch/robot_interface.launch" >
-	<arg name="rsi" value="true" />
+    <include file="$(find robotlab_support)/launch/robot_interface_streaming_robotlab.launch" >
+	<arg name="rsi_gantry" value="true" />
+	<arg name="rsi_floor" value="true" />
+	<arg name="sim_floor" value="false" />
+	<arg name="sim_gantry" value="false" />
     </include>
   </group>
 
