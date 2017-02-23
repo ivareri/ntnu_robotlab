@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--Generates a urdf from the macro in gantry_macro.xacro -->
 <robot name="robotlab" xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:include filename="$(find robotlab_support)/urdf/both_macro.xacro" />
+	<xacro:include filename="$(find robotlab_support)/urdf/robotlab_macro.xacro" />
 	<xacro:both prefix="" />
 </robot>

@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <launch>
   <!-- The planning and execution components of MoveIt! configured to run -->
   <!-- using the ROS-Industrial interface. -->
@@ -31,8 +30,8 @@
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
   <group unless="$(arg sim)">
-    <include file="$(find robotlab_support)/launch/robot_interface.launch" >
-	<arg name="rsi" value="true" />
+    <include file="$(find robotlab_support)/launch/robot_interface_streaming_robotlab_crosscom.launch" >
+	<arg name="crosscom" value="true" />
     </include>
   </group>
 

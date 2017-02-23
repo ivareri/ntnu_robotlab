@@ -1,3 +1,0 @@
- <launch>
-   <param name="robot_description"  command="$(find xacro)/xacro.py --inorder '$(find robotlab_support)/urdf/both.xacro'" />
- </launch>
