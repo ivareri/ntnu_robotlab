@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(moveit_tests)
 
 ## Add support for C++11, supported in ROS Kinetic and newer
-# add_definitions(-std=c++11)
+add_definitions(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 	moveit_ros_planning_interface
 )
 find_package(cmake_modules REQUIRED)
-find_package(Eigen REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS 
@@ -33,8 +33,8 @@ find_package(Boost REQUIRED COMPONENTS
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES moveit_tests
-  CATKIN_DEPENDS moveit_core roscpp  moveit_move_group_interface
-  DEPENDS system_lib
+  CATKIN_DEPENDS moveit_core roscpp
+#  DEPENDS system_lib
 )
 
 ###########
