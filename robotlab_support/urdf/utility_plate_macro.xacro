@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="A1_plate" params="prefix">
+		<link name="${prefix}A1_utility_plate">
+			<visual>
+				<geometry>
+					<box size="0.67 0.26 0.005" />
+				</geometry>
+				<material name="black">
+					<color rgba="0 0 0 1" />
+				</material>
+			</visual>
+			<collision>
+				<geometry>
+					<box size="0.7 0.3 0.10" />
+				</geometry>
+			</collision>
+			<inertial>
+				<mass value="0.5" />
+				<inertia ixx="0.0028177" ixy="0" ixz="0" iyy="0.018705208" iyz="0" izz="0.0215208" />
+			</inertial>
+		</link>
+		<link name="${prefix}A1_BOX">
+			<visual>
+				<geometry>
+					<box size="0.167 0.107 0.065" />
+				</geometry>
+				<material name="backish">
+					<color rgba="0.15 0.15 0.15 1" />
+				</material>
+				<origin rpy="0 0 0" xyz="-0.0835 -0.0535 -0.0325" />
+			</visual>
+			<collision>
+				<geometry>
+					<box size="0.18 0.12 0.08" />
+				</geometry>
+				<origin rpy="0 0 0" xyz="-0.0835 -0.0535 -0.0325" />
+			</collision>
+			<inertial>
+				<mass value="0.5" />
+				<inertia ixx="0.000866" ixy="0" ixz="0" iyy="0.001428708" iyz="0" izz="0.0016390833" />
+			</inertial>
+		</link>
+		<link name="${prefix}A1_BOX2">
+			<visual>
+				<geometry>
+					<box size="0.167 0.107 0.065" />
+				</geometry>
+				<material name="blackish">
+					<color rgba="0.15 0.15 0.15 1" />
+				</material>
+				<origin rpy="0 0 0" xyz="-0.0835 -0.0535 0.0325" />
+			</visual>
+			<collision>
+				<geometry>
+					<box size="0.18 0.12 0.08" />
+				</geometry>
+				<origin rpy="0 0 0" xyz="-0.0835 -0.0535 -0.0325" />
+			</collision>
+			<inertial>
+				<mass value="0.5" />
+				<inertia ixx="0.000866" ixy="0" ixz="0" iyy="0.001428708" iyz="0" izz="0.0016390833" />
+			</inertial>
+		</link>
+
+		<link name="${prefix}A1_DCDC">
+			<visual>
+				<geometry>
+					<box size="0.17 0.26 0.1" />
+				</geometry>
+				<material name="greyish">
+					<color rgba="0.5 0.5 0.5 1" />
+				</material>
+				<origin rpy="0 0 0" xyz="-0.085 -0.13 0.05" />
+			</visual>
+			<collision>
+				<geometry>
+					<box size="0.2 0.3 0.15" />
+				</geometry>
+				<origin rpy="0 0 0" xyz="-0.085 -0.13 0.05" />
+			</collision>
+			<inertial>
+				<mass value="0.5" />
+				<inertia ixx="0.000866" ixy="0" ixz="0" iyy="0.001428708" iyz="0" izz="0.0016390833" />
+			</inertial>
+
+		</link>
+		<joint name="${prefix}A1_plate_DCDC" type="fixed">
+			<parent link="${prefix}A1_utility_plate" />	
+			<child link="${prefix}A1_DCDC" />
+			<origin rpy="0 0 0" xyz="0.335 0.13 0.0025" />
+		</joint>
+		<joint name="${prefix}A1_plate_BOX" type="fixed">
+			<parent link="${prefix}A1_utility_plate" />	
+			<child link="${prefix}A1_BOX" />
+			 <origin rpy="0 0 0" xyz="-0.168 0.13 -0.0025 " />
+		</joint>
+		<joint name="${prefix}A1_plate_BOX2" type="fixed">
+			<parent link="${prefix}A1_utility_plate" />	
+			<child link="${prefix}A1_BOX2" />
+			 <origin rpy="0 0 0" xyz="-0.168 0.13 0.0025 " />
+		</joint>
+
+	</xacro:macro>
+
+	<xacro:macro name="A3_box" params="prefix">
+		<link name="${prefix}A3_box">
+			<visual>
+				<geometry>
+					<box size="0.28 0.17 0.07" />
+				</geometry>
+				<material name="ish">
+					<color rgba="0.8 0.8 0.8 1" />
+				</material>
+				<origin rpy="0 0 0" xyz="0 -0.085 -0.035" />
+			</visual>
+			<collision>
+				<geometry>
+					<box size="0.35 0.25 0.1" />
+				</geometry>
+				<origin rpy="0 0 0" xyz="0 -0.085 -0.035" />
+			</collision>
+			<inertial>
+				<mass value="0.5" />
+				<inertia ixx="0.001408" iyy="0.00347" izz="0.004470" ixy="0" ixz="0" iyz="0" />
+			</inertial>
+		</link>
+	</xacro:macro>
+</robot>

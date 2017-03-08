@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="SWK-020" params="prefix">
+		<link name="${prefix}SWK-020" >
+			<visual>
+	        		<origin xyz="0 0 0" rpy="0 0 0"/>
+	        		<geometry>
+			          	<mesh filename="package://robotlab_support/meshes/schunk/visual/SWK-020.stl" scale="0.001 0.001 0.001"/>
+        			</geometry>
+			      	</visual>
+		</link>
+	</xacro:macro>
+	<xacro:macro name="FTC-50-80" params="prefix">
+		<link name="${prefix}ftc" >
+			<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geomentry>
+				<mesh filename="package://robotlab_support/meshes/schunk/visual/FTC-50-80.stl" scale="0.001 0.001 0.001"/>
+			</geomentry>
+			</visual>
+		</link>
+	</xacro:macro>
+
+	<xacro:macro name="SWA-020" params="prefix">
+		<link name="${prefix}SWA-020" >
+			<visual>
+	        		<origin xyz="0 0 0" rpy="0 0 0"/>
+	        		<geometry>
+			          	<mesh filename="package://robotlab_support/meshes/schunk/visual/SWA-020.stl" scale="0.001 0.001 0.001"/>
+        			</geometry>
+			      	</visual>
+		</link>
+	</xacro:macro>
+
+	<xacro:macro name="FTC-SWS" params="prefix">
+		<link name="${prefix}FTC-SWS" >
+			<intertial>
+				<origin xyz="-0.00141168 -0.03561248 -0.00058552" rpy="0 0 0" />
+				<mass value="2.36" />
+				<inertia ixx="2.6282072064e-6" ixy="-9.42992384e-8" ixz="-5.73180928e-8" iyy="3.8189375488e-6" iyz="-3.91095296e-8" izz="2.7425937408e-6"/>
+			</intertial>
+			<visual>
+	        		<origin xyz="0 0 0" rpy="0 0 0"/>
+	        		<geometry>
+			          	<mesh filename="package://robotlab_support/meshes/schunk/visual/forcetourqe_toolchange.stl" scale="0.04 0.04 0.04"/>
+        			</geometry>
+				<material name="grey">
+				        <color rgba=".2 .2 .2 1"/>
+				</material>
+			</visual>
+			<collision>
+	        		<origin xyz="0 0 0" rpy="0 0 0"/>
+	        		<geometry>
+			          	<mesh filename="package://robotlab_support/meshes/schunk/visual/forcetourqe_toolchange.stl" scale="0.05 0.05 0.05"/>
+        			</geometry>
+			</collision>
+
+		</link>
+	</xacro:macro>
+
+
+</robot>

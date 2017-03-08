@@ -2,19 +2,27 @@
 <!--Generates a urdf from the macro in gantry_macro.xacro -->
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:macro name="both" params="prefix">
+	<xacro:macro name="robotlab" params="prefix">
 		<!-- Load required files -->
 		<xacro:include filename="$(find gantry_support)/urdf/gantry_robot_macro.xacro" />
 		<xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro" />
+		<xacro:include filename="$(find robotlab_support)/urdf/schunk_macro.xacro" />
+		<xacro:include filename="$(find	robotlab_support)/urdf/utility_plate_macro.xacro" />
 
 		<!-- Run macros -->
-		<xacro:gantry_robot prefix="${prefix}gantry_"/>
+		<xacro:gantry_robot prefix="${prefix}gantry_" />
 		<xacro:kuka_kr16_2 prefix="${prefix}floor_" />
+		<xacro:FTC-SWS prefix="${prefix}gantry_" />
+		<xacro:FTC-SWS prefix="${prefix}floor_" />
+		<xacro:A1_plate prefix="${prefix}gantry_" />
+		<xacro:A1_plate prefix="${prefix}floor_" />
+		<xacro:A3_box prefix="${prefix}floor_" />
+		<xacro:A3_box prefix="${prefix}gantry_" />
 
 		<link name="${prefix}root">
 		</link>
 
-		<joint name="${prefix}root_gantry_wee" type="fixed">
+		<joint name="${prefix}root_gantry_fixed" type="fixed">
 		        <parent link="${prefix}root" />
 		        <child link="${prefix}gantry_root" />
 		</joint>
@@ -24,5 +32,42 @@
 		        <parent link="${prefix}root" />
 		        <child link="${prefix}floor_base_link" />
 		</joint>
+
+		<joint name="${prefix}gantry_tool0_ftc" type="fixed">
+			<origin xyz="0 0 0" rpy="-${KUKA_DEG2RAD * 90} 0 0"/>
+			<parent link="${prefix}gantry_tool0" />
+			<child link="${prefix}gantry_FTC-SWS" />
+		</joint>
+
+		<joint name="${prefix}floor_tool0_ftc" type="fixed">
+			<origin xyz="0 0 0" rpy="-${KUKA_DEG2RAD * 90} 0 0"/>
+			<parent link="${prefix}floor_tool0" />
+			<child link="${prefix}floor_FTC-SWS" />
+		</joint>
+
+		<joint name="${prefix}gantry_A1_utility" type="fixed">
+			<origin xyz="0.1 0.30 -0.25" rpy="0 0 0" />
+			<parent link="${prefix}gantry_link_1" />
+			<child link="${prefix}gantry_A1_utility_plate" />
+		</joint>
+
+		<joint name="${prefix}floor_A1_utility" type="fixed">
+			<origin xyz="0.1 0.30 -0.25" rpy="0 0 0" />
+			<parent link="${prefix}floor_link_1" />
+			<child link="${prefix}floor_A1_utility_plate" />
+		</joint>
+
+		<joint name="${prefix}floor_A3_box" type="fixed">
+			<origin xyz="-0.28 0.1 0.18" rpy="0 0 ${KUKA_DEG2RAD * 90}"/>
+			<parent link="${prefix}floor_link_3"/>
+			<child link="${prefix}floor_A3_box" />
+		</joint>
+
+		<joint name="${prefix}gantry_A3_box" type="fixed">
+			<origin xyz="-0.28 0.1 0.18" rpy="0 0 ${KUKA_DEG2RAD * 90}"/>
+			<parent link="${prefix}gantry_link_3"/>
+			<child link="${prefix}gantry_A3_box" />
+		</joint>
+
 	</xacro:macro>
 </robot>
