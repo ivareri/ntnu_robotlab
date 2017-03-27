@@ -1,62 +1,68 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find robotlab_support)/urdf/both_macro.xacro"/>
-  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_robot_gazebo_macro.xacro"/>
-
+  <!-- Get the robotlab macro from support to generate the urdf of the robots -->
+  <xacro:include filename="$(find robotlab_support)/urdf/robotlab_macro.xacro"/>
+  <!-- Get the transmissions to get control of the joints -->
+  <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_transmission_macro.xacro"/>
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro"/>
+  <!-- Load gazebo_ros_control plugin -->
+  <xacro:include filename="$(find robotlab_gazebo)/urdf/gazebo.xacro"/>
+  
+  <!-- Make the Gazebo version of the robotlab macro  -->
   <xacro:macro name="robotlab_gazebo" params="prefix" >
     <!-- load robots -->
-    <xacro:both prefix="${prefix}" />
+    <xacro:robotlab prefix="${prefix}" />
   
     <!-- load gantry transmission -->
     <xacro:gantry_transmission prefix="${prefix}gantry_" />
-  
     <!-- load gantry kr16 transmission -->
     <xacro:kr16_2_transmission prefix="${prefix}gantry_" />
-  
     <!-- load floor kr16 transmission -->
     <xacro:kr16_2_transmission prefix="${prefix}floor_" />
-  <gazebo reference="${prefix}gantry_base_link">
+
+    <!-- The robots have gravity compensation (spring system? Or breaks?) -->
+    <gazebo reference="${prefix}gantry_base_link">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_2">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_4">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_5">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_6">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_base_link">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_2">
     <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_1">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_2">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_3">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_4">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_5">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_6">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_base_link">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_1">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_2">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_3">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_4">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_5">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}floor_link_6">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_4">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_5">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}floor_link_6">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
  
 
     <!-- ros_control plugin loaded from kr_16 file-->
