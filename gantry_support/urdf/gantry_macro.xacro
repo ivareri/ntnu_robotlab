@@ -103,7 +103,7 @@
       <limit lower="-1.6" upper="0" effort="1.0" velocity="0.55"/>
     </joint>
 
-    <joint name="${prefix}link_base" type="fixed">
+    <joint name="${prefix}joint_base" type="fixed">
       <origin xyz="0 0 0" rpy="0 ${DEG2RAD * 90} 0"/>
       <parent link="${prefix}root"/>
       <child link="${prefix}link_base"/>
