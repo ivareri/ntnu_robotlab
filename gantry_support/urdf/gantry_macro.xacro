@@ -125,7 +125,7 @@
       <limit lower="0" upper="4.7" effort="1.0" velocity="0.83"/>
     </joint>
 
-    <joint name="${prefix}robot_connection" type="fixed">
+    <joint name="${prefix}robot_connection_joint" type="fixed">
       <origin xyz="-0.026405 0.000343 -1.392678" rpy="-${DEG2RAD * 180} 0 0"/>
       <parent link="${prefix}link_arm"/>
       <child link="${prefix}robot_connection"/>
