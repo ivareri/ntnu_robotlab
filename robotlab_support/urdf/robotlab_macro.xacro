@@ -57,13 +57,13 @@
 			<child link="${prefix}floor_A1_utility_plate" />
 		</joint>
 
-		<joint name="${prefix}floor_A3_box" type="fixed">
+		<joint name="${prefix}floor_A3_plate_box" type="fixed">
 			<origin xyz="-0.28 0.1 0.18" rpy="0 0 ${KUKA_DEG2RAD * 90}"/>
 			<parent link="${prefix}floor_link_3"/>
 			<child link="${prefix}floor_A3_box" />
 		</joint>
 
-		<joint name="${prefix}gantry_A3_box" type="fixed">
+		<joint name="${prefix}gantry_A3_plate_box" type="fixed">
 			<origin xyz="-0.28 0.1 0.18" rpy="0 0 ${KUKA_DEG2RAD * 90}"/>
 			<parent link="${prefix}gantry_link_3"/>
 			<child link="${prefix}gantry_A3_box" />

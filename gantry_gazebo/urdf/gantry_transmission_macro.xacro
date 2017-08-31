@@ -3,7 +3,7 @@
 
     <xacro:macro name="gantry_transmission" params="prefix">
 
-        <!--joint_a1 transmission-->
+        <!--joint_e1 transmission-->
         <transmission name="${prefix}joint_e1_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e1">
@@ -15,7 +15,7 @@
             </actuator>
         </transmission>
 
-        <!--joint_a2 transmission-->
+        <!--joint_e2 transmission-->
         <transmission name="${prefix}joint_e2_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e2">
@@ -27,7 +27,7 @@
             </actuator>
         </transmission>
 
-        <!--joint_a3 transmission-->
+        <!--joint_e3 transmission-->
         <transmission name="${prefix}joint_e3_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e3">
@@ -38,23 +38,5 @@
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
     </transmission>
-
-	
-    <gazebo reference="${prefix}link_base">
-      <material>Gazebo/Grey</material>
-      <turnGravityOff>true</turnGravityOff>
-    </gazebo>
-    <gazebo reference="${prefix}link_leg">
-      <material>Gazebo/Blue</material>
-      <turnGravityOff>true</turnGravityOff>
-    </gazebo>
-    <gazebo reference="${prefix}link_arm">
-      <material>Gazebo/Blue</material>
-      <turnGravityOff>true</turnGravityOff>
-    </gazebo>
-    <gazebo reference="${prefix}link_trolley">
-      <turnGravityOff>true</turnGravityOff>
-    </gazebo>
-
     </xacro:macro>
 </robot>
