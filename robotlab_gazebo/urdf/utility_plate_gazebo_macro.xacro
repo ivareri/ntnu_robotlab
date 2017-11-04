@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="A1_plate_gazebo" params="prefix">
+		<gazebo reference="${prefix}A1_utility_plate">
+			<turnGravityOff>true</turnGravityOff>
+			 <material>Gazebo/FlatBlack</material>
+		</gazebo>
+		<gazebo reference="${prefix}A1_BOX">
+			 <material>Gazebo/FlatBlack</material>
+			<turnGravityOff>true</turnGravityOff>
+		</gazebo>
+		<gazebo reference="${prefix}A1_BOX2">
+			 <material>Gazebo/FlatBlack</material>
+			<turnGravityOff>true</turnGravityOff>
+		</gazebo>
+
+		<gazebo reference="${prefix}A1_DCDC">
+			 <material>Gazebo/Grey</material>
+			<turnGravityOff>true</turnGravityOff>
+		</gazebo>
+
+	</xacro:macro>
+
+	<xacro:macro name="A3_box_gazebo" params="prefix">
+		<gazebo reference="${prefix}A3_box">
+			 <material>Gazebo/LightGrey</material>
+			<turnGravityOff>true</turnGravityOff>
+		</gazebo>
+	</xacro:macro>
+</robot>

@@ -22,7 +22,8 @@
 		<link name="${prefix}root">
 		</link>
 
-		<joint name="${prefix}root_gantry_fixed" type="fixed">
+		<joint name="${prefix}root_gantry" type="fixed">
+			<origin xyz="0 0 0.0" rpy="0 0 0" />
 		        <parent link="${prefix}root" />
 		        <child link="${prefix}gantry_root" />
 		</joint>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="gantry_gravity" params="prefix" >
+    <gazebo reference="${prefix}link_leg">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}link_trolley">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}link_arm">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+  </xacro:macro>
+</robot>
