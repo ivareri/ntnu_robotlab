@@ -12,8 +12,10 @@
 		<!-- Run macros -->
 		<xacro:gantry_robot prefix="${prefix}gantry_" />
 		<xacro:kuka_kr16_2 prefix="${prefix}floor_" />
-		<xacro:FTC-SWS prefix="${prefix}gantry_" />
-		<xacro:FTC-SWS prefix="${prefix}floor_" />
+		<xacro:FTC-50-80 prefix="${prefix}gantry_" />
+		<xacro:FTC-50-80 prefix="${prefix}floor_" />
+		<xacro:SWK-020 prefix="${prefix}gantry_" />
+		<xacro:SWK-020 prefix="${prefix}floor_" />
 		<xacro:A1_plate prefix="${prefix}gantry_" />
 		<xacro:A1_plate prefix="${prefix}floor_" />
 		<xacro:A3_box prefix="${prefix}floor_" />
@@ -35,15 +37,26 @@
 		</joint>
 
 		<joint name="${prefix}gantry_tool0_ftc" type="fixed">
-			<origin xyz="0 0 0" rpy="-${KUKA_DEG2RAD * 90} 0 0"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<parent link="${prefix}gantry_tool0" />
-			<child link="${prefix}gantry_FTC-SWS" />
+			<child link="${prefix}gantry_FTC-50-80" />
+		</joint>
+		<joint name="${prefix}gantry_ftc_sws" type="fixed">
+			<origin xyz="0 0 0.0485" rpy="0 0 0"/>
+			<parent link="${prefix}gantry_FTC-50-80" />
+			<child link="${prefix}gantry_SWK-020" />
 		</joint>
 
+		
 		<joint name="${prefix}floor_tool0_ftc" type="fixed">
-			<origin xyz="0 0 0" rpy="-${KUKA_DEG2RAD * 90} 0 0"/>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
 			<parent link="${prefix}floor_tool0" />
-			<child link="${prefix}floor_FTC-SWS" />
+			<child link="${prefix}floor_FTC-50-80" />
+		</joint>
+		<joint name="${prefix}floor_ftc_sws" type="fixed">
+			<origin xyz="0 0 0.0485" rpy="0 0 0"/>
+			<parent link="${prefix}floor_FTC-50-80" />
+			<child link="${prefix}floor_SWK-020" />
 		</joint>
 
 		<joint name="${prefix}gantry_A1_utility" type="fixed">
