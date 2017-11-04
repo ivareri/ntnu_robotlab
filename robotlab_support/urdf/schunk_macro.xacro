@@ -37,9 +37,9 @@
   <xacro:macro name="SWK-020" params="prefix">
     <link name="${prefix}SWK-020">
       <visual>
-        <origin xyz="0 0 0" rpy="${pi/2} ${pi} 0"/>
+        <origin xyz="0 0 0" rpy="0 ${pi} 0"/>
         <geometry>
-          <mesh filename="package://robotlab_support/meshes/schunk/visual/SWK-020.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://robotlab_support/meshes/schunk/visual/SWK-020.dae" scale="0.001 0.001 0.001"/>
         </geometry>
       </visual>
       <collision>
