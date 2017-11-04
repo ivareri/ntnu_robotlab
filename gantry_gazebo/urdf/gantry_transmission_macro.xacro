@@ -7,10 +7,10 @@
         <transmission name="${prefix}joint_e1_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e1">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}motor_e1">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -19,10 +19,10 @@
         <transmission name="${prefix}joint_e2_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e2">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}motor_e2">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
         </transmission>
@@ -31,10 +31,10 @@
         <transmission name="${prefix}joint_e3_trans">
             <type>transmission_interface/SimpleTransmission</type>
             <joint name="${prefix}joint_e3">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             </joint>
             <actuator name="${prefix}motor_e3">
-                <hardwareInterface>PositionJointInterface</hardwareInterface>
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
     </transmission>
