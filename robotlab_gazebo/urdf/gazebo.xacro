@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <gazebo>
-      <plugin name="ros_control" filename="libgazebo_ros_control.so">
-	<!-- This plugin is required to link up gazebo and ros control. -->
-      </plugin>
-    </gazebo>
+  <gazebo>
+    <plugin name="ros_control" filename="libgazebo_ros_control.so">
+      <!-- This plugin is required to link up gazebo and ros control. -->
+    </plugin>
+  </gazebo>
 </robot>

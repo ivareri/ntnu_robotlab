@@ -1,54 +1,44 @@
 <?xml version="1.0"?>
-
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-	
-     <xacro:include filename="$(find gantry_support)/urdf/gantry_macro.xacro" />
-     <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro" />
-
-     <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro" />
-     <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_transmission_macro.xacro" />
-     
-     
-     <xacro:include filename="$(find gantry_gazebo)/urdf/gazebo.xacro" />
-
-
-     <xacro:macro name="gantry_robot_gazebo" params="prefix" >
-	<!-- load gantry -->
-    	<xacro:gantry prefix=""/>
- 	<xacro:gantry_transmission prefix=""/>
-	<!-- load kr16 -->
-    	<xacro:kuka_kr16_2 prefix=""/>
-    	<xacro:kr16_2_transmission prefix=""/>
-    
-   	<!-- Connect gantry to kr16 -->
-    	<joint name="gantry_robot" type="fixed">
-	    <parent link="robot_connection" />
-	    <child link="base_link" />
-    	</joint>
-
-
-       <!-- fix for gratvity in KR16 -->
-  <gazebo reference="${prefix}_gantry_base_link">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}_gantry_link_1">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}_gantry_link_2">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>  
-  <gazebo reference="${prefix}gantry_link_3">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_4">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_5">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
-  <gazebo reference="${prefix}gantry_link_6">
-    <turnGravityOff>true</turnGravityOff>
-  </gazebo>
- 	<!-- end fix for gravity in kr16 -->
-     </xacro:macro>
+  <xacro:include filename="$(find gantry_support)/urdf/gantry_macro.xacro"/>
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_transmission_macro.xacro"/>
+  <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro"/>
+  <xacro:include filename="$(find kuka_kr16_gazebo)/urdf/kr16_2_transmission_macro.xacro"/>
+  <xacro:include filename="$(find gantry_gazebo)/urdf/gazebo.xacro"/>
+  <xacro:macro name="gantry_robot_gazebo" params="prefix">
+    <!-- load gantry -->
+    <xacro:gantry prefix=""/>
+    <xacro:gantry_transmission prefix=""/>
+    <!-- load kr16 -->
+    <xacro:kuka_kr16_2 prefix=""/>
+    <xacro:kr16_2_transmission prefix=""/>
+    <!-- Connect gantry to kr16 -->
+    <joint name="gantry_robot" type="fixed">
+      <parent link="robot_connection"/>
+      <child link="base_link"/>
+    </joint>
+    <!-- fix for gratvity in KR16 -->
+    <gazebo reference="${prefix}_gantry_base_link">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}_gantry_link_1">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}_gantry_link_2">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_3">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_4">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_5">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${prefix}gantry_link_6">
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <!-- end fix for gravity in kr16 -->
+  </xacro:macro>
 </robot>

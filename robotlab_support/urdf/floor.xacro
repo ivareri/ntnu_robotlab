@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 <!--Generates a urdf from the macro in gantry_macro.xacro -->
-<robot name="gantry" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro" />
-  <xacro:kuka_kr16_2 prefix="floor_" />
-
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gantry">
+  <xacro:include filename="$(find kuka_kr16_support)/urdf/kr16_2_macro.xacro"/>
+  <xacro:kuka_kr16_2 prefix="floor_"/>
   <link name="root">
   </link>
-
   <joint name="root_floor" type="fixed">
-	  <origin xyz="0 1 0" rpy="0 0 0"/>
-	  <parent link="root" />
-	  <child link="floor_base_link" />
+    <origin xyz="0 1 0" rpy="0 0 0"/>
+    <parent link="root"/>
+    <child link="floor_base_link"/>
   </joint>
 </robot>
