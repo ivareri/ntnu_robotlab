@@ -9,6 +9,7 @@
   <joint name="world-base_link-fixed" type="fixed">
     <parent link="world"/>
     <child link="root"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
 </robot>
