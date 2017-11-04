@@ -3,4 +3,13 @@
 <robot name="gantry_robot_gazebo" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="$(find gantry_gazebo)/urdf/gantry_robot_gazebo_macro.xacro" />
     <xacro:gantry_robot_gazebo prefix=""/>
+
+    <!-- connect gantry to world frame -->
+    <link name="world" />
+    <joint name="world_joint" type="fixed">
+	<parent link="world" />
+	<child link = "root" />
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+
 </robot>

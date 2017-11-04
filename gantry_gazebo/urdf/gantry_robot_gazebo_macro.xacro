@@ -26,13 +26,6 @@
 	    <child link="base_link" />
     	</joint>
 
-    	<!-- connect gantry to world frame -->
-    	<link name="world" />
-    	<joint name="world_joint" type="fixed">
-    		<parent link="world" />
-      		<child link = "${prefix}root" />
-     		<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-	</joint>
 
        <!-- fix for gratvity in KR16 -->
   <gazebo reference="${prefix}_gantry_base_link">
