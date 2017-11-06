@@ -120,7 +120,7 @@ planner_configs:
     sparse_delta_fraction: 0.25  # delta fraction for connection distance. This value represents the visibility range of sparse samples. default: 0.25
     dense_delta_fraction: 0.001  # delta fraction for interface detection. default: 0.001
     max_failures: 5000  # maximum consecutive failure limit. default: 5000
-Floor:
+floor_manipulator:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -145,7 +145,9 @@ Floor:
     - LazyPRMstarkConfigDefault
     - SPARSkConfigDefault
     - SPARStwokConfigDefault
-Gantry:
+  projection_evaluator: joints(floor_joint_a1,floor_joint_a2)
+  longest_valid_segment_fraction: 0.005
+gantry:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -170,7 +172,9 @@ Gantry:
     - LazyPRMstarkConfigDefault
     - SPARSkConfigDefault
     - SPARStwokConfigDefault
-Robot:
+  projection_evaluator: joints(gantry_joint_e1,gantry_joint_e2)
+  longest_valid_segment_fraction: 0.005
+gantry_manipulator:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -195,7 +199,9 @@ Robot:
     - LazyPRMstarkConfigDefault
     - SPARSkConfigDefault
     - SPARStwokConfigDefault
-dummy_floor_eff:
+  projection_evaluator: joints(gantry_joint_a1,gantry_joint_a2)
+  longest_valid_segment_fraction: 0.005
+gantry_with_manipulator:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault
@@ -220,7 +226,59 @@ dummy_floor_eff:
     - LazyPRMstarkConfigDefault
     - SPARSkConfigDefault
     - SPARStwokConfigDefault
-dummy_gantry_eff:
+robot:
+  planner_configs:
+    - SBLkConfigDefault
+    - ESTkConfigDefault
+    - LBKPIECEkConfigDefault
+    - BKPIECEkConfigDefault
+    - KPIECEkConfigDefault
+    - RRTkConfigDefault
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - TRRTkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
+    - FMTkConfigDefault
+    - BFMTkConfigDefault
+    - PDSTkConfigDefault
+    - STRIDEkConfigDefault
+    - BiTRRTkConfigDefault
+    - LBTRRTkConfigDefault
+    - BiESTkConfigDefault
+    - ProjESTkConfigDefault
+    - LazyPRMkConfigDefault
+    - LazyPRMstarkConfigDefault
+    - SPARSkConfigDefault
+    - SPARStwokConfigDefault
+  projection_evaluator: joints(floor_joint_a1,floor_joint_a2)
+  longest_valid_segment_fraction: 0.005
+eff_floor:
+  planner_configs:
+    - SBLkConfigDefault
+    - ESTkConfigDefault
+    - LBKPIECEkConfigDefault
+    - BKPIECEkConfigDefault
+    - KPIECEkConfigDefault
+    - RRTkConfigDefault
+    - RRTConnectkConfigDefault
+    - RRTstarkConfigDefault
+    - TRRTkConfigDefault
+    - PRMkConfigDefault
+    - PRMstarkConfigDefault
+    - FMTkConfigDefault
+    - BFMTkConfigDefault
+    - PDSTkConfigDefault
+    - STRIDEkConfigDefault
+    - BiTRRTkConfigDefault
+    - LBTRRTkConfigDefault
+    - BiESTkConfigDefault
+    - ProjESTkConfigDefault
+    - LazyPRMkConfigDefault
+    - LazyPRMstarkConfigDefault
+    - SPARSkConfigDefault
+    - SPARStwokConfigDefault
+eff_gantry:
   planner_configs:
     - SBLkConfigDefault
     - ESTkConfigDefault

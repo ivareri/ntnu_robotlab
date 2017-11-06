@@ -1,5 +1,5 @@
 controller_list:
-  - name: fake_Floor_controller
+  - name: fake_floor_manipulator_controller
     joints:
       - floor_joint_a1
       - floor_joint_a2
@@ -7,7 +7,20 @@ controller_list:
       - floor_joint_a4
       - floor_joint_a5
       - floor_joint_a6
-  - name: fake_Gantry_controller
+  - name: fake_gantry_controller
+    joints:
+      - gantry_joint_e1
+      - gantry_joint_e2
+      - gantry_joint_e3
+  - name: fake_gantry_manipulator_controller
+    joints:
+      - gantry_joint_a1
+      - gantry_joint_a2
+      - gantry_joint_a3
+      - gantry_joint_a4
+      - gantry_joint_a5
+      - gantry_joint_a6
+  - name: fake_gantry_with_manipulator_controller
     joints:
       - gantry_joint_e1
       - gantry_joint_e2
@@ -18,7 +31,7 @@ controller_list:
       - gantry_joint_a4
       - gantry_joint_a5
       - gantry_joint_a6
-  - name: fake_Robot_controller
+  - name: fake_robot_controller
     joints:
       - floor_joint_a1
       - floor_joint_a2
@@ -35,9 +48,9 @@ controller_list:
       - gantry_joint_a4
       - gantry_joint_a5
       - gantry_joint_a6
-  - name: fake_dummy_floor_eff_controller
+  - name: fake_eff_floor_controller
     joints:
       []
-  - name: fake_dummy_gantry_eff_controller
+  - name: fake_eff_gantry_controller
     joints:
       []

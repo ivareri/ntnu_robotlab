@@ -1,10 +1,10 @@
 moveit_setup_assistant_config:
   URDF:
     package: robotlab_support
-    relative_path: urdf/robotlab.urdf
+    relative_path: urdf/robotlab.xacro
   SRDF:
     relative_path: config/robotlab.srdf
   CONFIG:
     author_name: Ivar Eriksen
     author_email: ivareri@stud.ntnu.no
-    generated_timestamp: 1489000913
+    generated_timestamp: 1509851780
