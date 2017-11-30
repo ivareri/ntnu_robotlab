@@ -1,5 +1,6 @@
 rsi:
   listen_address: "127.0.0.1"
   listen_port: 49153
+  force_torque_sensor_frame: "gantry/FTC-50-80"
   external_axes: true
   n_dof: 9
