@@ -32,10 +32,8 @@
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
   <group unless="$(arg sim)">
     <include file="$(find robotlab_support)/launch/robot_interface_streaming_robotlab.launch" >
-	<arg name="rsi_gantry" value="true" />
-	<arg name="rsi_floor" value="true" />
-	<arg name="sim_floor" value="false" />
-	<arg name="sim_gantry" value="false" />
+	    <arg name="kvp_gantry" value="true" />
+    	<arg name="kvp_floor" value="true" />
     </include>
   </group>
 
