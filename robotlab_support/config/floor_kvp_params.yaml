@@ -1,0 +1,3 @@
+  robot_ip_address: "10.0.0.101"
+  num_axes: 6
+  force_torque_sensor_frame: "floor_FTC-50-80"

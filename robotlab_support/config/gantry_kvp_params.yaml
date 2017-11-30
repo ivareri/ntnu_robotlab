@@ -1,0 +1,3 @@
+  robot_ip_address: "10.0.0.1"
+  num_axes: 9
+  force_torque_sensor_frame: "gantry_FTC-50-80"
