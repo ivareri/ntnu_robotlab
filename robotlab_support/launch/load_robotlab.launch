@@ -1,3 +1,4 @@
- <launch>
+<?xml version="1.0" encoding="utf-8"?> 
+<launch>
    <param name="robot_description"  command="$(find xacro)/xacro --inorder '$(find robotlab_support)/urdf/robotlab.xacro'" />
  </launch>

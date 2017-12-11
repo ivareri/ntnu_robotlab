@@ -1,4 +1,5 @@
- <launch>
+<?xml version="1.0" encoding="utf-8"?> 
+<launch>
    <param name="robot_description"  command="$(find xacro)/xacro.py --inorder '$(find robotlab_support)/urdf/both.xacro'" />
    <arg name="rvizconfig" default="$(find robotlab_support)/rviz/robotlab.rviz" /> 
    <arg name="gui" default="True" /> 
