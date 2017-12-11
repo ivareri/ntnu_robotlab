@@ -7,68 +7,44 @@
   <arg name="kvp_floor" default="false" />
   <arg name="kvp_gantry" default="false" />
 
-  <!-- Floor robot stuff -->
-  <group ns="floor">
-    <!-- Do remapping to fit ros industrial namespace -->
-    <remap from="position_trajectory_controller/follow_joint_trajectory" to="joint_trajectory_action"/>
-    <remap from="position_trajectory_controller/state" to="feedback_states"/>
-    <remap from="position_trajectory_controller/command" to="joint_path_command"/>
-    <!-- load controller parameters -->
-    <rosparam file="$(find robotlab_support)/config/floor_rsi_params_sim.yaml" command="load" if="$(arg sim_floor)"/>
-    <rosparam file="$(find robotlab_support)/config/floor_rsi_params.yaml" command="load" if="$(arg rsi_floor)"/>
-    <rosparam file="$(find robotlab_support)/config/floor_kvp_params.yaml" command="load" if="$(arg kvp_floor)"/>
-    <!-- start controller-->
-    <node name="kuka_hardware_interface_rsi" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg rsi_floor)"/>
-    <node name="kuka_hardware_interface_sim" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg sim_floor)"/>
-    <node name="kuka_hardware_interface_kvp" pkg="kuka_kvp_hw_interface" type="kuka_kvp_node" respawn="false" output="screen" required="true" if="$(arg kvp_floor)"/>
-    <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true" if="false"/>
-    <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find robotlab_support)/config/floor_hardware_controllers.yaml" command="load"/>
-    <!-- Load floor controller joint names from YAML file to parameter server -->
-    <rosparam file="$(find robotlab_support)/config/floor_controller_joint_names.yaml" command="load"/>
-    <!-- Load controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
-    <!-- Load RSI simulation node -->
-    <node name="kuka_rsi_simulator" pkg="kuka_rsi_simulator" type="kuka_rsi_simulator" args="127.0.0.1 49152" if="$(arg sim_floor)"/>
-  </group>
+  <!-- Used to enable or disable toolchanger node -->
+  <arg name="sws_floor" default="true" />
+  <arg name="sws_gantry" default="true" />
 
-  <!-- Gantry robot stuff -->
-  <group ns="gantry">
-    <!-- Do remapping to fit ros industrial namespace -->
-    <remap from="position_trajectory_controller/follow_joint_trajectory" to="joint_trajectory_action"/>
-    <remap from="position_trajectory_controller/follow_joint_trajectory" to="joint_trajectory_action"/>
-    <remap from="position_trajectory_controller/state" to="feedback_states"/>
-    <remap from="position_trajectory_controller/command" to="joint_path_command"/>
-    <!-- load controller parameters -->
-    <rosparam file="$(find robotlab_support)/config/gantry_rsi_params_sim.yaml" command="load" if="$(arg sim_gantry)"/>
-    <rosparam file="$(find robotlab_support)/config/gantry_rsi_params.yaml" command="load" if="$(arg rsi_gantry)"/>
-    <rosparam file="$(find robotlab_support)/config/gantry_kvp_params.yaml" command="load" if="$(arg kvp_gantry)"/>
-    <!-- Start controller -->
-    <node name="kuka_hardware_interface_rsi" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg rsi_gantry)"/>
-    <node name="kuka_hardware_interface_sim" pkg="kuka_rsi_hw_interface" type="kuka_hardware_interface_node" respawn="false" output="screen" required="true" if="$(arg sim_gantry)"/>
-    <node name="kuka_hardware_interface_kvp" pkg="kuka_kvp_hw_interface" type="kuka_kvp_node" respawn="false" output="screen" required="true" if="$(arg kvp_gantry)"/>
-    <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find robotlab_support)/config/gantry_hardware_controllers.yaml" command="load"/>
-    <!-- Load controller joint names from YAML file to parameter server -->
-    <rosparam file="$(find robotlab_support)/config/gantry_controller_joint_names.yaml" command="load"/>
-    <!-- Load controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_trajectory_controller joint_state_controller --shutdown-timeout 1"/>
-    <!-- Load RSI simulation node -->
-    <node name="kuka_rsi_simulator" pkg="kuka_rsi_simulator" type="kuka_rsi_simulator" args="127.0.0.1 49153 --external_axes=True" if="$(arg sim_gantry)"/>
-  </group>
+  <!-- RSI driver -->
+  <include file="load_rsi.launch">
+    <arg name="gantry" value="$(arg rsi_gantry)" />
+    <arg name="floor" value="$(arg rsi_floor)" />
+  </include>
 
-  <group ns="gantry/ftc">
-    <rosparam file="$(find robotlab_support)/config/gantry_kvp_params.yaml" command="load" if="$(arg kvp_gantry)"/>
-    <rosparam file="$(find robotlab_support)/config/gantry_hardware_controllers.yaml" command="load"/>
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="force_torque_sensor_controller --shutdown-timeout 1"/>
-    <node name="kuka_kvp_ftc_interface" pkg="kuka_kvp_hw_interface" type="kvp_ftc_node" respawn="false" output="screen" required="true" if="$(arg kvp_gantry)"/>
+  <!-- KVP driver -->
+  <include file="load_kvp.launch">
+    <arg name="gantry" value="$(arg kvp_gantry)" />
+    <arg name="floor" value="$(arg kvp_floor)" />
+  </include>
 
-  </group>
+  <!-- Simulation using RSI driver -->
+  <include file="load_sim.launch">
+    <arg name="gantry" value="$(arg sim_gantry)" />
+    <arg name="floor" value="$(arg sim_floor)" />
+  </include>
+
+ <!-- KVP toolchanger node -->
+  <include file="load_sws.launch">
+    <arg name="gantry" value="$(arg sws_gantry)" />
+    <arg name="floor" value="$(arg sws_floor)" />
+  </include>
+
+ <!-- Load KVP FTC node if KVP driver is used -->
+  <include file="load_ftc.launch">
+    <arg name="gantry" value="$(arg kvp_gantry)" />
+    <arg name="floor" value="$(arg kvp_floor)" />
+  </include>
 
 
-   <!-- Use joint_state_publisher to merge joint_states from both controllers -->
-   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-          <rosparam param="source_list">["/gantry/joint_states","/floor/joint_states"]</rosparam>
-          <param name="rate" value="80" />
+  <!-- Use joint_state_publisher to merge joint_states from both controllers -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+      <rosparam param="source_list">["/gantry/joint_states","/floor/joint_states"]</rosparam>
+      <param name="rate" value="80" />
    </node>
 </launch>

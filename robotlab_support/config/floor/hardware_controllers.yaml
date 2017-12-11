@@ -3,10 +3,6 @@ joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 
-force_torque_sensor_controller:
-  type: "force_torque_sensor_controller/ForceTorqueSensorController"
-  publish_rate: 50
-
 # Joint trajectory controller
 position_trajectory_controller:
   type: "position_controllers/JointTrajectoryController"
