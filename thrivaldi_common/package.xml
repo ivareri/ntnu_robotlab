@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ntnu_robotlab</name>
-  <version>0.0.1</version>
-  <description>Collection of packages for robotlab.</description>
+  <name>thrivaldi_common</name>
+  <version>0.1.0</version>
+  <description>Collection of common ROS packages for Thrivaldi.</description>
   <maintainer email="ivareri@stud.ntnu.no">Ivar Eriksen</maintainer>
   <author email="ivareri@stud.ntnu.no">Ivar Eriksen</author>
-  <license>BSD</license>
+  <license>Apache 2.0</license>
 
 
   <buildtool_depend>catkin</buildtool_depend>
@@ -15,7 +15,7 @@
   <exec_depend>kuka_resources</exec_depend>
   <exec_depend>kuka_rsi_hw_interface</exec_depend>
   <exec_depend>kuka_rsi_simulator</exec_depend>
-
+ 
   <export>
     <metapackage/>
   </export>

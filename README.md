@@ -24,11 +24,11 @@ Packages for using the KUKA Robotics lab at Department of Engineering Cybernetic
 
   1. Need patches to the RSI driver thats not in the offical kuka_experimental repo 
   
-    ```git clone https://github.com/ivareri/kuka_experimental.git```
+    ```git clone https://github.com/itk-thrivaldi/kuka_experimental.git```
   
   2. URDF and other needed packages
   
-    ```git clone https://github.com/ivareri/ntnu_robotlab.git```
+    ```git clone https://github.com/itk-thrivaldi/thrivaldi_common.git```
 
 6. ### Install missing dependencies
   Run rosdep from CATKIN_WS/src
