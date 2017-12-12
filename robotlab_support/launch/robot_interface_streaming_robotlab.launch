@@ -6,37 +6,37 @@
   <arg name="rsi_gantry" default="false" />
   <arg name="kvp_floor" default="false" />
   <arg name="kvp_gantry" default="false" />
-
+$(find robotlab_support)
   <!-- Used to enable or disable toolchanger node -->
   <arg name="sws_floor" default="true" />
   <arg name="sws_gantry" default="true" />
 
   <!-- RSI driver -->
-  <include file="load_rsi.launch">
+  <include file="$(find robotlab_support)/launch/load_rsi.launch">
     <arg name="gantry" value="$(arg rsi_gantry)" />
     <arg name="floor" value="$(arg rsi_floor)" />
   </include>
 
   <!-- KVP driver -->
-  <include file="load_kvp.launch">
+  <include file="$(find robotlab_support)/launch/load_kvp.launch">
     <arg name="gantry" value="$(arg kvp_gantry)" />
     <arg name="floor" value="$(arg kvp_floor)" />
   </include>
 
   <!-- Simulation using RSI driver -->
-  <include file="load_sim.launch">
+  <include file="$(find robotlab_support)/launch/load_sim.launch">
     <arg name="gantry" value="$(arg sim_gantry)" />
     <arg name="floor" value="$(arg sim_floor)" />
   </include>
 
  <!-- KVP toolchanger node -->
-  <include file="load_sws.launch">
+  <include file="$(find robotlab_support)/launch/load_sws.launch">
     <arg name="gantry" value="$(arg sws_gantry)" />
     <arg name="floor" value="$(arg sws_floor)" />
   </include>
 
  <!-- Load KVP FTC node if KVP driver is used -->
-  <include file="load_ftc.launch">
+  <include file="$(find robotlab_support)/launch/load_ftc.launch">
     <arg name="gantry" value="$(arg kvp_gantry)" />
     <arg name="floor" value="$(arg kvp_floor)" />
   </include>
